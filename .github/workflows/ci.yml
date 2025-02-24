@@ -15,7 +15,7 @@ run-name: "CI - ${{ inputs.ENVIRONMENT }}"
 
 jobs:
   deploy:
-    uses: tpc-ciberseguridad/osv-scanner/.github/workflows/.github/workflows/commons-osv-scanner.yml@main
+    uses: tpc-ciberseguridad/osv-scanner/.github/workflows/commons-osv-scanner.yml@main
     with:
       ENVIRONMENT: ${{inputs.ENVIRONMENT}}
     secrets: inherit
