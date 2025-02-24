@@ -1,0 +1,21 @@
+name: CI Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      ENVIRONMENT:
+        description: "Select the deploy environment"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+          - dev
+
+run-name: "CI - ${{ inputs.ENVIRONMENT }}"
+
+jobs:
+  deploy:
+    uses: tpc-ciberseguridad/osv-scanner/.github/workflows/.github/workflows/commons-osv-scanner.yml@main
+    with:
+      ENVIRONMENT: ${{inputs.ENVIRONMENT}}
+    secrets: inherit
